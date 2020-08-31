@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+
+    <!-- defaultModelType="flat" 设置复合主键时不单独为主键创建实体 -->
+    <context id="MySql" defaultModelType="flat" targetRuntime="MyBatis3Simple">
+
+        <!-- 生成的Java文件的编码 -->
+        <property name="javaFileEncoding" value="UTF-8"/>
+        <!-- 格式化java代码 -->
+        <!--<property name="javaFormatter" value="org.mybatis.generator.api.dom.DefaultJavaFormatter"/>-->
+        <!-- 格式化XML代码 -->
+        <!--<property name="xmlFormatter" value="org.mybatis.generator.api.dom.DefaultXmlFormatter"/>-->
+        <!-- 生成的POJO实现java.io.Serializable接口 -->
+        <plugin type="com.yx.generator.mybatis.MySerializablePlugin"/>
+        <!--重写插件,编码xml中文件重新生成只会追加的问题 -->
+        <plugin type="com.yx.generator.mybatis.OverIsMergeablePlugin"/>
+        <!--lombok代替get、set方法-->
+        <plugin type="com.yx.generator.mybatis.LombokPlugin">
+            <property name="generatorSerialVersionUID" value="true"/>
+            <!-- tkMybatis的通用mapp类路径-->
+            <property name="basicMapper" value="com.yx.generator.mybatis.BasicMapper"/>
+            <!-- model包名-->
+            <property name="modelPackage" value="com.yx.generator.model"/>
+        </plugin>
+        <!-- 自定义注释处理-->
+        <commentGenerator type="com.yx.generator.mybatis.MyCommentGenerator">
+            <!-- 移除接口方法注释中的日期-->
+            <property name="suppressDate" value="true"/>
+        </commentGenerator>
+
+
+        <!-- 数据库连接，直接通过${}读取application.properties里的配置 -->
+        <jdbcConnection
+                driverClass="com.mysql.jdbc.Driver"
+                connectionURL="jdbc:mysql://localhost:3306/mysql?serverTimezone=Asia/Shanghai&amp;useUnicode=true&amp;characterEncoding=UTF-8&amp;zeroDateTimeBehavior=convertToNull&amp;useSSL=false"
+                userId="root"
+                password="1234qwer"/>
+
+        <!-- 生成Model类，并将类放到com.songguoliang.springboot.entity包下 -->
+        <javaModelGenerator targetPackage="com.yx.generator.model" targetProject="src/main/java">
+            <!-- 在targetPackage的基础上，根据数据库的schema再生成一层package，最终生成的类放在这个package下，默认为false -->
+            <!--<property name="enableSubPackages" value="true"/>-->
+            <!-- 设置是否在getter方法中，对String类型字段调用trim()方法 -->
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+        <!-- 生成mapper.xml文件，并放到resources下的mapper文件夹下 -->
+        <sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources"></sqlMapGenerator>
+
+        <!-- 生成mapper.xml对应dao接口，放到com.songguoliang.springboot.mapper包下-->
+        <javaClientGenerator targetPackage="com.yx.generator.mapper" targetProject="src/main/java" type="XMLMAPPER">
+            <!--<property name="enableSubPackages" value="true"/>-->
+        </javaClientGenerator>
+
+        <!-- table标签可以有多个，至少一个，tableName指定表名，可以使用_和%通配符 -->
+        <!--table的domainObjectName="UserInfo123" 设置生成POJO的名称-->
+        <table tableName="gl_game_wallet_transaction_log">
+            <!--            <columnOverride column="third_id" javaType="Integer"/>-->
+            <!-- 是否只生成POJO对象 -->
+            <!--<property name="modelOnly" value="false"/>-->
+            <!-- 数据库中表名有时我们都会带个前缀，而实体又不想带前缀，这个配置可以把实体的前缀去掉 -->
+            <!--<domainObjectRenamingRule searchString="^Tbl" replaceString=""/>-->
+        </table>
+    </context>
+</generatorConfiguration>

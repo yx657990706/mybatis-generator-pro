@@ -1,0 +1,43 @@
+# Created by .ignore support plugin (hsz.mobi)
+### Example user template template
+### Example user template
+
+# IntelliJ project files
+target/
+bin
+log
+.idea
+.git
+.project
+.settings
+.DS_Store
+*.iml
+dubbo.cache
+dubbo.cache.lock
+
+*/*.iml
+*/.git
+*/target/
+*/bin
+*/log
+*/.idea
+*/.project
+*/.settings
+*/.DS_Store
+/*.classpath
+.idea/*.xml
+*.iml
+
+# Eclipse
+*/*.project
+*/*.settings
+*/*.classpath
+
+*/*/.project
+*/*/.settings
+*/*/.classpath
+
+
+#Git
+*/*.gitignore
+*/*/.gitignore

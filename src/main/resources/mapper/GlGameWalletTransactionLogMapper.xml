@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yx.generator.mapper.GlGameWalletTransactionLogMapper">
+  <resultMap id="BaseResultMap" type="com.yx.generator.model.GlGameWalletTransactionLog">
+    <id column="rid" jdbcType="BIGINT" property="rid" />
+    <result column="trade_id" jdbcType="VARCHAR" property="tradeId" />
+    <result column="game_platform_id" jdbcType="INTEGER" property="gamePlatformId" />
+    <result column="action" jdbcType="INTEGER" property="action" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="amount" jdbcType="DECIMAL" property="amount" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="retry_count" jdbcType="INTEGER" property="retryCount" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+</mapper>
