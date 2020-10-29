@@ -56,34 +56,34 @@
           <target>1.8</target>
         </configuration>
       </plugin>
-<!--      <plugin>-->
-<!--        &lt;!&ndash; 因为项目中使用了依赖包,所以要使用maven-assembly-plugin来构建,会把依赖包同时打进jar包中 &ndash;&gt;-->
-<!--        <artifactId>maven-assembly-plugin</artifactId>-->
-<!--        <version>3.1.0</version>-->
-<!--        <configuration>-->
-<!--          &lt;!&ndash; 这里不指定为false打包会生成两个jar包,我们要用的那个jar包命名很乱,后面加了-->
-<!--          jar-with-dependencies,不喜欢,直接禁用掉 &ndash;&gt;-->
-<!--          <appendAssemblyId>false</appendAssemblyId>-->
-<!--          <archive>-->
-<!--            <manifest>-->
-<!--              &lt;!&ndash; 指定类的全路径  否则运行会报找不到main class的错误&ndash;&gt;-->
-<!--              <mainClass>org.mybatis.generator.api.ShellRunner</mainClass>-->
-<!--            </manifest>-->
-<!--          </archive>-->
-<!--          <descriptorRefs>-->
-<!--            <descriptorRef>jar-with-dependencies</descriptorRef>-->
-<!--          </descriptorRefs>-->
-<!--        </configuration>-->
-<!--        <executions>-->
-<!--          <execution>-->
-<!--            <id>make-assembly</id>-->
-<!--            <phase>package</phase>-->
-<!--            <goals>-->
-<!--              <goal>single</goal>-->
-<!--            </goals>-->
-<!--          </execution>-->
-<!--        </executions>-->
-<!--      </plugin>-->
+      <plugin>
+        <!-- 因为项目中使用了依赖包,所以要使用maven-assembly-plugin来构建,会把依赖包同时打进jar包中 -->
+        <artifactId>maven-assembly-plugin</artifactId>
+        <version>3.1.0</version>
+        <configuration>
+          <!-- 这里不指定为false打包会生成两个jar包,我们要用的那个jar包命名很乱,后面加了
+          jar-with-dependencies,不喜欢,直接禁用掉 -->
+          <appendAssemblyId>false</appendAssemblyId>
+          <archive>
+            <manifest>
+              <!-- 指定类的全路径  否则运行会报找不到main class的错误-->
+              <mainClass>org.mybatis.generator.api.ShellRunner</mainClass>
+            </manifest>
+          </archive>
+          <descriptorRefs>
+            <descriptorRef>jar-with-dependencies</descriptorRef>
+          </descriptorRefs>
+        </configuration>
+        <executions>
+          <execution>
+            <id>make-assembly</id>
+            <phase>package</phase>
+            <goals>
+              <goal>single</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
 
     </plugins>
   </build>
