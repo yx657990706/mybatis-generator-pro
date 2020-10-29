@@ -26,6 +26,8 @@ public class LombokPlugin extends PluginAdapter {
         topLevelClass.addImportedType("lombok.*");
         //添加table的import
         topLevelClass.addImportedType("javax.persistence.*");
+        //添加swagger的import
+        topLevelClass.addImportedType("io.swagger.annotations.ApiModelProperty");
 
         //添加domain的注解
         topLevelClass.addAnnotation("@Getter");
