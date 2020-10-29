@@ -52,12 +52,6 @@ public class LombokPlugin extends PluginAdapter {
             if (underlineFieldName.contains("_")) {
                 field.addAnnotation("@Column(name = \"" + underlineFieldName + "\")");
             }
-//            Optional<IntrospectedColumn> introspectedColumn = introspectedTable.getColumn(underlineFieldName);
-//            if (null == introspectedColumn) {
-//                continue;
-//            }
-//            fieldSb.append(introspectedColumn.get().getRemarks());
-
         }
 
         return true;

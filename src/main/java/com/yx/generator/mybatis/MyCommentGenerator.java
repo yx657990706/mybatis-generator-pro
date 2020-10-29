@@ -181,6 +181,8 @@ public class MyCommentGenerator extends DefaultCommentGenerator {
         field.addJavaDocLine("/**");
         field.addJavaDocLine(" * " + introspectedColumn.getRemarks());
         field.addJavaDocLine(" */");
+        //knife4j接口文档字段注释处理
+        field.addAnnotation("@ApiModelProperty(value = \"" + introspectedColumn.getRemarks() + "\")");
     }
 
     /**
