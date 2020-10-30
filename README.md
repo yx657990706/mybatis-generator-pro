@@ -8,4 +8,4 @@
 
 [MyBatis Generator](https://blog.csdn.net/u011781521/article/details/78161201)
 
-[配置文件参数说明](https://www.jianshu.com/p/e09d2370b796)
+[配置文件参数说明](https://blog.csdn.net/zy987654zy/article/details/105434002)
